@@ -1,6 +1,11 @@
 package com.agenda.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -58,13 +63,36 @@ public class AgendaController {
 	    return "formAltera";
 	}
 	
+	@RequestMapping(value="/agenda",method = RequestMethod.POST)
+	public ModelAndView BuscaContato(String nome) {
+		//ele vai renderiza de acordo com os dados do evento
+		ModelAndView mv = new ModelAndView("index");
+		Iterable<Agenda> agenda;
+		if(nome.isEmpty()) {
+			agenda= ar.findByOrderByNomeAsc();
+		}else {
+			Iterable<Agenda> aux;
+			List<Agenda> ag = new ArrayList<>();
+			aux= ar.findByNomeStartsWith(nome);
+			aux.forEach(element->{
+				ag.add(element);
+			});
+			Collections.sort(ag);
+			agenda=ag;
+		}
+		// objeto para recuparar os contatos no banco
+		//passando a lista de contato para o index 
+		mv.addObject("agenda",agenda);
+		return mv;
+	}
+	
 	
 	@RequestMapping(value="/agenda")
 	public ModelAndView listaAgenda() {
 		//ele vai renderiza de acordo com os dados do evento
 		ModelAndView mv = new ModelAndView("index");
 		// objeto para recuparar os contatos no banco
-		Iterable<Agenda> agenda= ar.findAll();
+		Iterable<Agenda> agenda= ar.findByOrderByNomeAsc();
 		//passando a lista de contato para o index 
 		mv.addObject("agenda",agenda);
 		return mv;

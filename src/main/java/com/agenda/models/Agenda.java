@@ -1,6 +1,7 @@
 package com.agenda.models;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 
 //criando um entidade no banco de dados Agenda
 @Entity
-public class Agenda implements Serializable {
+public class Agenda implements Serializable,Comparable<Agenda> {
 	
 	private static final long serialVersionUID=1L;
 	@Id 
@@ -46,6 +47,8 @@ public class Agenda implements Serializable {
 	public void setInformacao(String informacao) {
 		this.informacao = informacao;
 	}
-	
-	
+	@Override
+	public int compareTo(Agenda ag1) {
+		return this.nome.compareTo(ag1.nome);
+	}
 }
