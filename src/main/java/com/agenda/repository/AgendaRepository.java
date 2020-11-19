@@ -9,6 +9,7 @@ import com.agenda.models.Agenda;
 import java.util.*;
 public interface AgendaRepository extends CrudRepository<Agenda,String> {
 	 //Atributo Endereco dentro de Empregado ele já implementa pra vc tudo!
+	//são as querys do banco de dados
 	Agenda findByCodigo(long codigo);
 	List<Agenda> findByNome(String nome);
 	List<Agenda> findByOrderByNomeAsc();

@@ -48,7 +48,7 @@
                 <td><span th:text="${agenda.telefone}"></span></td>
                 <td><span th:text="${agenda.informacao}"></span></td>
                 <td><a class="waves-effect waves-light red btn-small" th:href="${(#mvc.url('AC#deletarContato').arg(0, agenda.codigo)).build()}"><i class="material-icons left">delete</i> deletar</a></td>
-            	<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('AC#showUpdateForm').arg(0, agenda.codigo)).build()}"><i class="material-icons left">edit</i> editar</a></td>
+            	<td><a class="waves-effect waves-light blue btn-small" th:href="${(#mvc.url('AC#showUpdateForm').arg(0, agenda.codigo)).build()}"><i class="material-icons left">edit</i> editar</a></td>
             </tr>
         </tbody>
     </table>
