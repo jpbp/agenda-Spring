@@ -1,9 +1,11 @@
 package com.agenda.controller;
-
+import com.agenda.models.Endereco;
+import com.agenda.service.ServicoDeCep;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.hibernate.service.internal.ServiceDependencyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -18,10 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.agenda.models.Agenda;
+import com.agenda.models.Endereco;
 import com.agenda.repository.AgendaRepository;
 import com.sun.xml.bind.v2.model.core.ID;
-
-
+import com.agenda.models.Endereco;
+import com.agenda.models.Endereco;
 @Controller
 public class AgendaController {
 	
@@ -32,6 +35,7 @@ public class AgendaController {
 	public String form() {
 		return "formAgenda";
 	}
+
 
 	@RequestMapping(value="/cadastrarAgenda",method = RequestMethod.POST)
 	public String form(Agenda agenda) {
@@ -62,6 +66,7 @@ public class AgendaController {
 	    
 	    return "formAltera";
 	}
+	
 	
 	@RequestMapping(value="/agenda",method = RequestMethod.POST)
 	public ModelAndView BuscaContato(String nome) {
@@ -95,6 +100,18 @@ public class AgendaController {
 		Iterable<Agenda> agenda= ar.findByOrderByNomeAsc();
 		//passando a lista de contato para o index 
 		mv.addObject("agenda",agenda);
+		return mv;
+	}
+	@RequestMapping(value="/cep")
+	public ModelAndView cep() throws Exception {
+		//ele vai renderiza de acordo com os dados do evento
+		ModelAndView mv = new ModelAndView("cep");
+		// objeto para recuparar os contatos no banc
+		Endereco endereco = ServicoDeCep.buscaEnderecoPelo("07714600");
+		
+
+		//passando a lista de contato para o index 
+		mv.addObject("endereco",endereco);
 		return mv;
 	}
 	

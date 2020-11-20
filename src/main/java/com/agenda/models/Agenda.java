@@ -23,6 +23,7 @@ public class Agenda implements Serializable,Comparable<Agenda> {
 	private String informacao;
 	
 	
+	
 	public long getCodigo() {
 		return codigo;
 	}
