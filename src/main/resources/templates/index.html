@@ -37,16 +37,26 @@
             <tr>
                 <th>Nome</th>
                 <th>Telefone</th>
-                <th>Informacao</th>
+                <th>Email</th>
+                <th>Cep</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>UF</th>
+                <th>IBGE</th>
                 <th>Deletar</th>
-                 <th>Editar</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="agenda : ${agenda}">
                 <td><span th:text="${agenda.nome}"></span></td>
                 <td><span th:text="${agenda.telefone}"></span></td>
-                <td><span th:text="${agenda.informacao}"></span></td>
+                <td><span th:text="${agenda.email}"></span></td>
+                <td><span th:text="${agenda.cep}"></span></td>
+                <td><span th:text="${agenda.rua}"></span></td>
+                <td><span th:text="${agenda.bairro}"></span></td>
+                <td><span th:text="${agenda.UF}"></span></td>
+                <td><span th:text="${agenda.ibge}"></span></td>
                 <td><a class="waves-effect waves-light red btn-small" th:href="${(#mvc.url('AC#deletarContato').arg(0, agenda.codigo)).build()}"><i class="material-icons left">delete</i> deletar</a></td>
             	<td><a class="waves-effect waves-light blue btn-small" th:href="${(#mvc.url('AC#showUpdateForm').arg(0, agenda.codigo)).build()}"><i class="material-icons left">edit</i> editar</a></td>
             </tr>

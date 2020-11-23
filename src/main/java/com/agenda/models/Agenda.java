@@ -20,10 +20,52 @@ public class Agenda implements Serializable,Comparable<Agenda> {
 	
 	private String nome;
 	private String telefone;
-	private String informacao;
+	private String email;
+	private String cep;
+	private String rua;
+	private String bairro;
+	private String cidade;
+	private String UF;
+	private String ibge;
 	
 	
 	
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public String getRua() {
+		return rua;
+	}
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public String getUF() {
+		return UF;
+	}
+	public void setUF(String uF) {
+		UF = uF;
+	}
+	public String getIbge() {
+		return ibge;
+	}
+	public void setIbge(String ibge) {
+		this.ibge = ibge;
+	}
 	public long getCodigo() {
 		return codigo;
 	}
@@ -42,12 +84,14 @@ public class Agenda implements Serializable,Comparable<Agenda> {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getInformacao() {
-		return informacao;
+	
+	public String getEmail() {
+		return email;
 	}
-	public void setInformacao(String informacao) {
-		this.informacao = informacao;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+	
 	@Override
 	public int compareTo(Agenda ag1) {
 		return this.nome.compareTo(ag1.nome);

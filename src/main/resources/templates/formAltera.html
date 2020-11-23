@@ -16,7 +16,20 @@
     <form class="container" method="POST" th:action="@{/update/{id}(id=${agenda.codigo})}" th:object="${agenda}">
         Nome:<input type="text" name="nome" th:field="*{nome}">
         Telefone:<input type="text" name="telefone" th:field="*{telefone}">
-        Informacao:<input type="text" name="informacao" th:field="*{informacao}">
+        Email:<input type="text" name="informacao" th:field="*{email}">
+        Cep:
+        <input th:field="*{cep}" name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+               onblur="pesquisacep(this.value);" /></label><br  />
+        Rua:
+        <input th:field="*{rua}" name="rua" type="text" id="rua" size="60" /></label><br  />
+       Bairro:
+        <input th:field="*{bairro}" name="bairro" type="text" id="bairro" size="40" /></label><br  />
+        Cidade:
+        <input th:field="*{cidade}" name="cidade" type="text" id="cidade" size="40" /></label><br  />
+       Estado:
+        <input th:field="*{UF}" name="UF" type="text" id="uf" size="2" /></label><br />
+        IBGE:
+        <input th:field="*{ibge}" name="ibge" type="text" id="ibge" size="8" /></label><br  />
         <button type="submit" class="waves-effect waves-light btn">Salvar</button>
         
     </form>	
