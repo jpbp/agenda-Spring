@@ -28,7 +28,14 @@ public class Agenda implements Serializable,Comparable<Agenda> {
 	private String UF;
 	private String ibge;
 	
-	
+	public Agenda () {
+		
+	}
+	public Agenda(long id,String nome,String tefelone) {
+		this.codigo=id;
+		this.nome=nome;
+		this.telefone=telefone;
+	}
 	
 	public String getCep() {
 		return cep;

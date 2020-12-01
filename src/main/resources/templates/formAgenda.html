@@ -20,11 +20,11 @@
 </head>
 <body>
     <h1>Adicionando contato</h1>
-    <h3><a href="agenda" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Lista de contatos</a></h3>
+    <h3><a id="listar" href="agenda" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Lista de contatos</a></h3>
     <form class="container" method="POST" action="" >
-        Nome:<input type="text" name="nome" value="">
-        Telefone:<input type="text" name="telefone" value="">
-        Email:<input type="text" name="email" value="">
+        Nome:<input type="text" name="nome" id="nome" value="">
+        Telefone:<input type="text" id="telefone" name="telefone" value="">
+        Email:<input type="text" id="email" name="email" value="">
 	    Cep:
         <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
                onblur="pesquisacep(this.value);" /></label><br />
@@ -38,7 +38,7 @@
         <input name="UF" type="text" id="uf" size="2" /></label><br />
         IBGE:
         <input name="ibge" type="text" id="ibge" size="8" /></label><br />
-        <button type="submit" class="waves-effect waves-light btn">Salvar</button>
+        <button type="submit" id="salvar" class="waves-effect waves-light btn">Salvar</button>
     </form>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

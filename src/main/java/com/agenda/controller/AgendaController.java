@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.service.internal.ServiceDependencyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -64,7 +65,14 @@ public class AgendaController {
 	    
 	    return "formAltera";
 	}
-	
+	@GetMapping("/obter/{codigo}")
+	public ResponseEntity<Agenda> obterContato(@PathVariable("codigo")long codigo) {
+		Agenda ag = ar.findByCodigo(codigo);
+		if(ag==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(ag);		 
+	}
 	
 	@RequestMapping(value="/agenda",method = RequestMethod.POST)
 	public ModelAndView BuscaContato(String nome) {
