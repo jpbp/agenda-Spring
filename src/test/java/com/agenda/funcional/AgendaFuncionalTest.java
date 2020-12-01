@@ -47,6 +47,7 @@ public class AgendaFuncionalTest {
 		driver.findElement(By.id("uf")).sendKeys("");
 		driver.findElement(By.id("ibge")).sendKeys("");
 		System.out.println("aqui4");
+		Thread.sleep(3000);
 		//clicar no btn salvar
 		driver.findElement(By.id("salvar")).click();
 	

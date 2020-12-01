@@ -2,6 +2,7 @@ package com.agenda.controller.unitario;
 
 import static org.mockito.Mockito.when;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ class AgendaApplicationTests {
 	@Test
 	public void deveRetornarSucesso_QuandoBuscarContato() {
 		//criando um mock, instanciando o repository falso do componente 
-		when(this.ar.findByCodigo(1L)).thenReturn(new Agenda(1,"jp","jp@jp.com"));
-		given().accept(ContentType.JSON).when().get("/obter/{codigo}",1L).then().statusCode(HttpStatus.OK.value());
+		when(this.ar.findByCodigo(2L)).thenReturn(new Agenda(2,"jp","jp@jp.com"));
+		given().accept(ContentType.JSON).when().get("/obter/{codigo}",2).then().statusCode(HttpStatus.OK.value());
 	}
 
 }
